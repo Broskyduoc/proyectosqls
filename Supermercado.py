@@ -14,14 +14,14 @@ def clp(n):
 
 # salas = '🏃➡⚽🥅👑👑👑'
 # DEFINIR VARIABLES -----------------------------------------------------------------------------------------------------
-sPag = 120
+anchoPagina = 100
 # LOL
 
 
 
 
-def espacios(texto,spag):
-    return int((spag - len(texto))/2)
+def espacios(texto,anchoPagina):
+    return int((anchoPagina - len(texto))/2)
 
 def clear():
     if os.name == "nt": #windows
@@ -53,7 +53,7 @@ def menuPrincipal():
     )
     
     if r == "1":
-        consultarStock(getInv(), sPag)
+        consultarStock(getInv(), anchoPagina)
     elif r == "2":
         agregarStock()
     elif r == "3":
@@ -125,13 +125,13 @@ def saveInv(inventario):   # GUARDAR INFORMACION DEL INVENTARIO
 
 
 
-def consultarStock(inventario,sPag):   # MOSTRAR STOCK AL USUARIO
+def consultarStock(inventario,anchoPagina):   # MOSTRAR STOCK AL USUARIO
     clear()
-    tmpPag = espacios('STOCK ACTUAL', sPag)
+    tmpPag = espacios('STOCK ACTUAL', anchoPagina)
     print(f"{'-'*tmpPag}STOCK ACTUAL{'-'*tmpPag}")
-    print(f"{' '*espacios('Pag 1', sPag)}Pag 1")
+    print(f"{' '*espacios('Pag 1', anchoPagina)}Pag 1\n")
 
-    espacioRes = sPag
+    espacioRes = anchoPagina
     inventario = getInv()
 
 
@@ -152,12 +152,13 @@ def consultarStock(inventario,sPag):   # MOSTRAR STOCK AL USUARIO
         tmpLinea.append((f"{" "*tmp}{clp(venta)}|"))
         tmp = 9 - len(cantidad)
         tmpLinea.append((f"{" "*tmp}{cantidad}|"))
+        tmp = 30 - len(categorias)
+        tmpLinea.append((f"{" "*tmp}{categorias}"))
         
 
         linea = "".join(tmpLinea)
         print(linea)
-        print(f"---+{"-"*35}+{"---------+"*3}")
-        
+        print(f"---+{"-"*35}+{"---------+"*3}+{"-"*29}")
 
 
 
