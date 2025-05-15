@@ -9,3 +9,18 @@ inventario,0,0,0,0,0
 8,Chocolate Trencito,700,2200,402,Dulces,Alimento
 9,Helado Guallarauco Frambuesa,500,1200,900,Helados,Congelados
 10,Limpiador Desinfectante,2300,5400,302,Higiene
+11,Yogur Natural Soprole,250,600,850,Lacteos,Alimento
+12,Harina Selecta 1kg,700,1350,1200,Abarrote,Alimento
+13,Galletas Triton Chocolate,400,900,1300,Dulces,Alimento
+14,Shampoo Head & Shoulders,2200,4900,210,Higiene
+15,Cereal Zucaritas 300g,1600,3100,500,Abarrote,Alimento
+16,Detergente Ariel 3L,2800,6300,350,Limpieza
+17,Mantequilla Colun con sal,1200,2400,750,Lacteos,Alimento
+18,Hamburguesas San Jorge 4un,1900,4200,400,Congelados,Alimento
+19,Sopaipillas lista PF,1100,2500,380,Congelados,Alimento
+20,Cloro Gel Clorinda 2L,1000,2600,310,Limpieza
+21,Queso Gauda Lonjas Colún,1700,3700,680,Lacteos,Alimento
+22,Toalla Nova 2un,900,1900,420,Higiene
+23,Jugo Watts Durazno 1L,700,1500,1100,Bebestibles,Alimento
+24,Salsa de Tomate Natura,600,1250,970,Abarrote,Alimento
+25,Cafe Nescafe Tradicion 170g,2900,5800,260,Bebestibles,Alimento

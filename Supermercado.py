@@ -1,4 +1,5 @@
 import os
+import math
 
 if os.path.basename(os.getcwd()) != 'Supermercado':
     os.chdir('Supermercado')
@@ -126,40 +127,72 @@ def saveInv(inventario):   # GUARDAR INFORMACION DEL INVENTARIO
 
 
 def consultarStock(inventario,anchoPagina):   # MOSTRAR STOCK AL USUARIO
-    clear()
-    tmpPag = espacios('STOCK ACTUAL', anchoPagina)
-    print(f"{'-'*tmpPag}STOCK ACTUAL{'-'*tmpPag}")
-    print(f"{' '*espacios('Pag 1', anchoPagina)}Pag 1\n")
-
-    espacioRes = anchoPagina
     inventario = getInv()
+    prodxPagina = 10
+    tProductos = len(inventario)
+    tPaginas = math.ceil(tProductos / 10)
+    pagActual = 1
 
+    while True:
+        clear()
+        tmpPag = espacios('STOCK ACTUAL', anchoPagina)
+        print(f"{'-'*tmpPag}STOCK ACTUAL{'-'*tmpPag}")
+        print(f"{' '*espacios(f'Pag {pagActual}/{tPaginas}', anchoPagina)}Pag {pagActual}/{tPaginas}\n")
 
-    for producto in inventario:
-        id = producto[0]
-        nombre = producto[1]
-        compra = producto[2]
-        venta = producto[3]
-        cantidad = producto[4]
-        categorias = ", ".join(producto[5])
-        tmp = 3 - len(str(id))
-        tmpLinea = [(f"{id}{' '*tmp}|")]
-        tmp = 35 - len(nombre)
-        tmpLinea.append((f"{" "*tmp}{nombre}|"))
-        tmp = 9 - len(clp(compra))
-        tmpLinea.append((f"{" "*tmp}{clp(compra)}|"))
-        tmp = 9 - len(clp(venta))
-        tmpLinea.append((f"{" "*tmp}{clp(venta)}|"))
-        tmp = 9 - len(cantidad)
-        tmpLinea.append((f"{" "*tmp}{cantidad}|"))
-        tmp = 30 - len(categorias)
-        tmpLinea.append((f"{" "*tmp}{categorias}"))
+        inicio = (pagActual - 1) * prodxPagina
+        fin = min(inicio + prodxPagina, tProductos)
+        print(f"ID |{' '*29}Nombre|  Compra  |  Venta  |  Stock  |{' '*19}Categorías")
+        print(f"---+{'-'*35}+{'-'*10}+{'-'*9}+{'-'*9}+{'-'*29}")
+
+        i = 1
+
+        for producto in inventario[inicio:fin]:
+            id = producto[0]
+            nombre = producto[1]
+            compra = producto[2]
+            venta = producto[3]
+            cantidad = producto[4]
+            categorias = ", ".join(producto[5])
+            tmp = 3 - len(str(id))
+            tmpLinea = [(f"{id}{' '*tmp}|")]
+            tmp = 35 - len(nombre)
+            tmpLinea.append((f"{" "*tmp}{nombre}|"))
+            tmp = 10 - len(clp(compra))
+            tmpLinea.append((f"{" "*tmp}{clp(compra)}|"))
+            tmp = 9 - len(clp(venta))
+            tmpLinea.append((f"{" "*tmp}{clp(venta)}|"))
+            tmp = 9 - len(cantidad)
+            tmpLinea.append((f"{" "*tmp}{cantidad}|"))
+            tmp = 29 - len(categorias)
+            tmpLinea.append((f"{" "*tmp}{categorias}"))
+
+            linea = "".join(tmpLinea)
+            print(linea)
+            if i < prodxPagina:
+                print(f"---+{"-"*35}+{"-"*10}+{"---------+"*2}{"-"*29}")
+            i += 1
         
-
-        linea = "".join(tmpLinea)
-        print(linea)
-        print(f"---+{"-"*35}+{"---------+"*3}+{"-"*29}")
-
+        if pagActual == 1:
+            print(f'\n{" "*49}X   >')
+            print(f'{" "*49}2   3')
+        elif pagActual == tPaginas:
+            print(f'\n{" "*45}<   X')
+            print(f'{" "*45}1   2')
+        elif tPaginas == 1:
+            print(f'\n{" "*49}X')
+            print(f'{" "*49}2')
+        else:
+            print(f'\n{" "*45}<   X   >')
+            print(f'{" "*45}1   2   3')
+        r = input().strip()
+        if r == '1' and pagActual != 1:
+            pagActual -= 1
+        elif r == '3' and pagActual < tPaginas:
+            pagActual += 1
+        elif r == '2':
+            break
+    menuPrincipal()
+    
 
 
 
