@@ -1,13 +1,16 @@
 import os
 
-if os.path.basename(os.getcwd()) != 'practica':
-    os.chdir('practica')
+if os.path.basename(os.getcwd()) != 'Supermercado':
+    os.chdir('Supermercado')
+
 def valNum(n):
     try:
         int(n)
         return True
     except Exception:
         return False
+def clp(n):
+    return f"${int(n):,}".replace(",", ".")
 
 # salas = '🏃➡⚽🥅👑👑👑'
 # DEFINIR VARIABLES -----------------------------------------------------------------------------------------------------
@@ -141,11 +144,20 @@ def consultarStock(inventario,sPag):   # MOSTRAR STOCK AL USUARIO
         categorias = ", ".join(producto[5])
         tmp = 3 - len(str(id))
         tmpLinea = [(f"{id}{' '*tmp}|")]
-        espacioRes -= 4
-        for elementos
+        tmp = 35 - len(nombre)
+        tmpLinea.append((f"{" "*tmp}{nombre}|"))
+        tmp = 9 - len(clp(compra))
+        tmpLinea.append((f"{" "*tmp}{clp(compra)}|"))
+        tmp = 9 - len(clp(venta))
+        tmpLinea.append((f"{" "*tmp}{clp(venta)}|"))
+        tmp = 9 - len(cantidad)
+        tmpLinea.append((f"{" "*tmp}{cantidad}|"))
         
-        print(tmpLinea)
 
+        linea = "".join(tmpLinea)
+        print(linea)
+        print(f"---+{"-"*35}+{"---------+"*3}")
+        
 
 
 
