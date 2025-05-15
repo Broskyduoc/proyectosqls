@@ -1,0 +1,11 @@
+inventario,0,0,0,0,0
+1,Arroz Blanco,1300,2599,2602,Abarrote,Alimento
+2,Leche Entera,800,1200,1203,Lacteos,Alimento
+3,Desodorante,6500,14500,340,Higiene
+4,Chocman,50,300,600,Dulces,Alimento
+5,Azucar,450,800,605,Abarrote,Alimento
+6,Jabon,700,1200,304,Higiene
+7,Pasta Dental,1500,3400,104,Higiene
+8,Chocolate Trencito,700,2200,402,Dulces,Alimento
+9,Helado Guallarauco Frambuesa,500,1200,900,Helados,Congelados
+10,Limpiador Desinfectante,2300,5400,302,Higiene
